@@ -1,4 +1,9 @@
 {
+  "applications": {
+    "gecko": {
+      "id": "{eb059682-fdfe-4250-a2c2-7f7d1af4fe85}"
+    }
+  },
   "manifest_version": 2,
   "name": "Pinboard",
   "version" : "0.1.0",
