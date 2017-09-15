@@ -1,28 +1,37 @@
 {
-  "applications": {
-    "gecko": {
-      "id": "{eb059682-fdfe-4250-a2c2-7f7d1af4fe85}"
-    }
-  },
-  "manifest_version": 2,
   "name": "Pinboard",
-  "version" : "0.1.0",
-  "description": "A very minimal Google Chrome Extention for Pinboard (http://pinboard.in) that doesn't use API keys, but just opens Pinboard windows.",
+  "description": "A minimal Firefox extension for Pinboard (https://pinboard.in) that doesn't use API keys, but just opens Pinboard windows.",
+  "homepage_url": "https://github.com/fiatjaf/firefox-pinboard-popup/",
+  "manifest_version": 2,
+  "version" : "0.2.0",
   "permissions": [
     "activeTab",
     "contextMenus"
   ],
+  "background": {
+    "scripts": [
+      "helpers.js",
+      "background.js"
+    ]
+  },
+  "commands": {
+    "save-to-pinboard": {
+      "suggested_key": { "default": "Alt+D" },
+      "description": "Save current page to Pinboard"
+    }
+  },
   "browser_action": {
     "default_title": "Pinboard",
     "default_popup": "popup.html",
-    "default_icon": {
-      "19": "icon19.png",
-      "38": "icon38.png"
-    }
+    "default_icon": "icon.svg",
+    "theme_icons": [{
+      "light": "icon-dark.svg",
+      "dark": "icon-light.svg",
+      "size": 19
+    }]
   },
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "48": "icon-color.svg",
+    "128": "icon-color.svg"
   }
 }
