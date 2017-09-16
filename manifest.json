@@ -1,5 +1,5 @@
 {
-  "name": "Pinboard",
+  "name": "Pinboard Button",
   "description": "A minimal Firefox extension for Pinboard (https://pinboard.in) that doesn't use API keys, but just opens Pinboard windows.",
   "homepage_url": "https://github.com/fiatjaf/firefox-pinboard-popup/",
   "manifest_version": 2,
