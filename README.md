@@ -10,4 +10,4 @@ The Pinboard Button opens a small menu that let's you:
 
 The extension also has a keyboard shortcut to quickly save to Pinboard: `Alt+P`.
 
-[Download](https://addons.mozilla.org/en-US/firefox/addon/pinboard-popup/) it in the Firefox Add-ons website.
+[Download](https://addons.mozilla.org/en-US/firefox/addon/pinboard-button/) it in the Firefox Add-ons website.
