@@ -5,7 +5,7 @@
 const BASE_URL = 'https://pinboard.in'
 
 function saveToPinboard (toReadLater) {
-  if (toReadLater === null) toReadLater = false
+  if (toReadLater === undefined) toReadLater = false
 
   browser.tabs.query({active: true, currentWindow: true}, function (tabs) {
     let tab = tabs[0]
@@ -14,7 +14,6 @@ function saveToPinboard (toReadLater) {
     let title = tab.title
     let description = tab.description || ''
     let pinboardUrl = BASE_URL + '/add?'
-
     let next = encodeURIComponent(BASE_URL)
 
     let fullUrl = pinboardUrl + 'showtags=yes&next=' + next +
