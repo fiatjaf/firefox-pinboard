@@ -5,7 +5,7 @@
 const BASE_URL = 'https://pinboard.in'
 
 function saveToPinboard (toReadLater) {
-  if (toReadLater === undefined) toReadLater = false
+  if (toReadLater !== true) toReadLater = false
 
   browser.tabs.query({active: true, currentWindow: true}, function (tabs) {
     let tab = tabs[0]
@@ -14,9 +14,9 @@ function saveToPinboard (toReadLater) {
     let title = tab.title
     let description = tab.description || ''
     let pinboardUrl = BASE_URL + '/add?'
-    let next = encodeURIComponent(BASE_URL)
+    let next = encodeURIComponent(BASE_URL + '/close')
 
-    let fullUrl = pinboardUrl + 'showtags=yes&next=' + next +
+    let fullUrl = pinboardUrl + 'next=' + next +
       '&url=' + encodeURIComponent(url) +
       '&description=' + encodeURIComponent(description) +
       '&title=' + encodeURIComponent(title)
@@ -30,9 +30,9 @@ function saveToPinboard (toReadLater) {
 
     browser.windows.create({
       url: fullUrl,
-      width: 720,
-      height: 540,
-      type: "popup"
+      width: 660,
+      height: 300,
+      type: 'popup'
     })
   })
 }
