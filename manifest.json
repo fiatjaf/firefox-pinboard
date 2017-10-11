@@ -3,7 +3,7 @@
   "description": "A minimal Firefox extension for Pinboard (https://pinboard.in) that doesn't use API keys, but just opens Pinboard windows.",
   "homepage_url": "https://github.com/fiatjaf/firefox-pinboard-popup/",
   "manifest_version": 2,
-  "version" : "0.3.0",
+  "version" : "0.4.0",
   "applications": {
     "gecko": {
       "id": "{eb059682-fdfe-4250-a2c2-7f7d1af4fe85}"
@@ -23,6 +23,10 @@
     "save-to-pinboard": {
       "suggested_key": { "default": "Alt+P" },
       "description": "Save current page to Pinboard"
+    },
+    "save-to-read-later": {
+      "suggested_key": { "default": "Alt+R" },
+      "description": "Save current page to Pinboard's \"to read\" list"
     }
   },
   "browser_action": {
