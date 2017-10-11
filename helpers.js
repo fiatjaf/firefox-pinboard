@@ -14,7 +14,7 @@ function saveToPinboard (toReadLater) {
     let title = tab.title
     let description = tab.description || ''
     let pinboardUrl = BASE_URL + '/add?'
-    let next = encodeURIComponent(BASE_URL + '/close')
+    let next = encodeURIComponent('/close')
 
     let fullUrl = pinboardUrl + 'next=' + next +
       '&url=' + encodeURIComponent(url) +
