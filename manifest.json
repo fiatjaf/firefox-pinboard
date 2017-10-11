@@ -11,7 +11,8 @@
   },
   "permissions": [
     "activeTab",
-    "contextMenus"
+    "contextMenus",
+    "https://pinboard.in/close"
   ],
   "background": {
     "scripts": [
@@ -29,6 +30,10 @@
       "description": "Save current page to Pinboard's \"to read\" list"
     }
   },
+  "content_scripts": [{
+    "matches": ["https://pinboard.in/close"],
+    "js": ["close.js"]
+  }],
   "browser_action": {
     "default_title": "Pinboard",
     "default_popup": "popup.html",

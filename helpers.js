@@ -14,7 +14,7 @@ function saveToPinboard (toReadLater) {
     let title = tab.title
     let description = tab.description || ''
     let pinboardUrl = BASE_URL + '/add?'
-    let next = encodeURIComponent(BASE_URL)
+    let next = encodeURIComponent(BASE_URL + '/close')
 
     let fullUrl = pinboardUrl + 'showtags=yes&next=' + next +
       '&url=' + encodeURIComponent(url) +
@@ -32,7 +32,7 @@ function saveToPinboard (toReadLater) {
       url: fullUrl,
       width: 720,
       height: 540,
-      type: "popup"
+      type: 'popup'
     })
   })
 }
