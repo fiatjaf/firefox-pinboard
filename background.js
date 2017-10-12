@@ -11,6 +11,6 @@ browser.commands.onCommand.addListener(function (command) {
 
 browser.runtime.onMessage.addListener(function (message, sender) {
   if (message === 'close-this') {
-    browser.windows.remove(sender.tab.windowId)
+    browser.tabs.remove(sender.tab.id)
   }
 })

@@ -31,7 +31,7 @@ function saveToPinboard (toReadLater) {
     browser.windows.create({
       url: fullUrl,
       width: 660,
-      height: 300,
+      height: 400,
       type: 'popup'
     })
   })
