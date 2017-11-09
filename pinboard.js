@@ -4,15 +4,17 @@
 
 const BASE_URL = 'https://pinboard.in'
 
-function saveToPinboard (toReadLater) {
-  if (toReadLater !== true) toReadLater = false
+function saveToPinboard (options) {
+  if (options === undefined) options = {}
+  if (options.toReadLater === undefined) options.toReadLater = false
+  if (options.description === undefined) options.description = ''
 
   browser.tabs.query({active: true, currentWindow: true}, function (tabs) {
     let tab = tabs[0]
 
     let url = tab.url
     let title = tab.title
-    let description = tab.description || ''
+    let description = options.description || ''
     let pinboardUrl = BASE_URL + '/add?'
     let next = encodeURIComponent('/close')
 
@@ -21,7 +23,7 @@ function saveToPinboard (toReadLater) {
       '&description=' + encodeURIComponent(description) +
       '&title=' + encodeURIComponent(title)
 
-    if (toReadLater) {
+    if (options.toReadLater) {
       // add URL to Pinboard's "to read" list, without asking for description and tags
       fullUrl = pinboardUrl + 'later=yes&noui=yes&next=' + next +
         '&url=' + encodeURIComponent(url) +
@@ -38,16 +40,16 @@ function saveToPinboard (toReadLater) {
 }
 
 function saveToReadLater () {
-  saveToPinboard(true)
+  saveToPinboard({toReadLater: true})
 }
 
-function unreadBookmarks () {
+function openUnreadBookmarks () {
   browser.tabs.create({
     url: BASE_URL + '/toread/'
   })
 }
 
-function allBookmarks () {
+function openAllBookmarks () {
   browser.tabs.create({
     url: BASE_URL
   })

@@ -16,7 +16,7 @@
   ],
   "background": {
     "scripts": [
-      "helpers.js",
+      "pinboard.js",
       "background.js"
     ]
   },
