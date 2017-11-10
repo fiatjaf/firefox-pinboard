@@ -4,7 +4,7 @@
 
 browser.runtime.onMessage.addListener((message, sender) => {
   if (message === 'save-to-pinboard' || message === 'save-to-read-later') {
-    saveWithSelection(message)
+    saveWithDescription(message)
   } else if (message === 'open-unread-bookmarks') {
     openUnreadBookmarks()
   } else if (message === 'open-all-bookmarks') {
@@ -16,12 +16,12 @@ browser.runtime.onMessage.addListener((message, sender) => {
 
 browser.commands.onCommand.addListener((command) => {
   if (command === 'save-to-pinboard' || command === 'save-to-read-later') {
-    saveWithSelection(command)
+    saveWithDescription(command)
   }
 })
 
-function saveWithSelection (command) {
-  getSelection((results) => {
+function saveWithDescription (command) {
+  getDescription((results) => {
     let description = results[0]
     saveBookmark(command, {description: description})
   }, () => {
@@ -37,16 +37,32 @@ function saveBookmark (command, options) {
   }
 }
 
-function getSelection (gotSelection, noSelection) {
-  let requestSelection = browser.tabs.executeScript({
-    code: '(' + getSelectionText + ')()',
+function getDescription (success, error) {
+  browser.tabs.executeScript({
+    code: '(' + getSelectionOrDescription + ')()',
     allFrames: false
-  })
-  requestSelection.then(gotSelection, noSelection)
+  }).then(success, error)
 }
 
-function getSelectionText () {
-  let text = ''
-  if (window.getSelection) text = window.getSelection().toString()
-  return text
+function getSelectionOrDescription () {
+  function getSelectionText () {
+    let text = ''
+    if (window.getSelection) text = window.getSelection().toString()
+
+    return text
+  }
+
+  function getMetaDescription () {
+    let meta = window.document.querySelector('meta[name=description]')
+    let description = meta
+      ? meta.getAttribute('content') || ''
+      : ''
+
+    return description
+  }
+
+  let selection = getSelectionText()
+  let description = getMetaDescription()
+
+  return selection || description
 }
