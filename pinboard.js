@@ -4,43 +4,33 @@
 
 const BASE_URL = 'https://pinboard.in'
 
-function saveToPinboard (options) {
-  if (options === undefined) options = {}
-  if (options.toReadLater === undefined) options.toReadLater = false
-  if (options.description === undefined) options.description = ''
+function saveToPinboard (options = {url: '', title: '', description: '', readLater: false}) {
+  let {url, title, description, readLater} = options
 
-  browser.tabs.query({active: true, currentWindow: true}, function (tabs) {
-    let tab = tabs[0]
+  let pinboardUrl = BASE_URL + '/add?'
+  let next = encodeURIComponent('/close')
 
-    let url = tab.url
-    let title = tab.title
-    let description = options.description || ''
-    let pinboardUrl = BASE_URL + '/add?'
-    let next = encodeURIComponent('/close')
+  let fullUrl = pinboardUrl + 'next=' + next +
+    '&url=' + encodeURIComponent(url) +
+    '&description=' + encodeURIComponent(description) +
+    '&title=' + encodeURIComponent(title)
 
-    let fullUrl = pinboardUrl + 'next=' + next +
+  if (readLater) {
+    fullUrl = pinboardUrl + 'later=yes&noui=yes&next=' + next +
       '&url=' + encodeURIComponent(url) +
-      '&description=' + encodeURIComponent(description) +
       '&title=' + encodeURIComponent(title)
+  }
 
-    if (options.toReadLater) {
-      // add URL to Pinboard's "to read" list, without asking for description and tags
-      fullUrl = pinboardUrl + 'later=yes&noui=yes&next=' + next +
-        '&url=' + encodeURIComponent(url) +
-        '&title=' + encodeURIComponent(title)
-    }
-
-    browser.windows.create({
-      url: fullUrl,
-      width: 660,
-      height: 400,
-      type: 'popup'
-    })
+  browser.windows.create({
+    url: fullUrl,
+    width: 660,
+    height: 400,
+    type: 'popup'
   })
 }
 
-function saveToReadLater () {
-  saveToPinboard({toReadLater: true})
+function saveToReadLater (options) {
+  saveToPinboard({...options, readLater: true})
 }
 
 function openUnreadBookmarks () {
