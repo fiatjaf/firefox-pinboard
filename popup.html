@@ -1,7 +1,8 @@
 <!doctype html>
-<meta charset="UTF-8">
+<meta charset="utf-8">
+
 <style>
-.item {
+  .item {
     padding: 4px 14px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 13px;
@@ -11,37 +12,42 @@
     cursor:default;
     position: relative;
     width: 180px;
-}
-
-.border {
-    border: solid 1px #cdcdcd;
-}
-
-.item:hover{
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #004cb3;
-}
-
-.item .shortcut {
-  float: right;
-  display: inline-block;
-  margin-left: 1em;
-  padding: 0.2em 0.4em;
-  border-radius: 0.2em;
-  background: black;
-  color: white;
-  opacity: 0.5;
-  font-size: 0.7em;
-  line-height: 1em;
-  text-transform: uppercase;
-}
+    color: #111;
+  }
+  .item:hover{
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #004cb3;
+  }
+  .item span {
+    float: right;
+    display: inline-block;
+    margin-left: 1em;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+    background: #111;
+    color: white;
+    opacity: 0.5;
+    font-size: 0.7em;
+    line-height: 1em;
+    text-transform: uppercase;
+  }
+  .divider {
+    opacity: 0.2;
+    padding: 4px 14px;
+  }
+  .divider hr {
+    border: none;
+    background: #111;
+    color: #111;
+    height: 1px;
+  }
 </style>
 
-<div id="saveToPinboard" class="item">Save to Pinboard <span class="shortcut">Alt+P</span></div>
-<div id="saveToReadLater" class="item">Save to Read Later <span class="shortcut">Alt+R</span></div>
+<div id="saveToPinboard" class="item">Save to Pinboard <span>Alt+P</span></div>
+<div id="saveToReadLater" class="item">Save to Read Later <span>Alt+R</span></div>
+<div class="divider"><hr /></div>
 <div id="unreadBookmarks" class="item">Unread bookmarks</div>
 <div id="allBookmarks" class="item">All bookmarks</div>
 
-<script src="./helpers.js"></script>
 <script src="./popup.js"></script>
