@@ -1,6 +1,18 @@
 /* eslint-env browser, es6 */
 /* global browser */
 
+browser.commands.getAll().then((allCommands) => {
+  let commandElementMap = {
+    'save-to-pinboard': '#saveToPinboard',
+    'save-to-read-later': '#saveToReadLater'
+  }
+
+  allCommands.forEach((command) => {
+    let commandBadge = document.querySelector(`${commandElementMap[command.name]} .badge`)
+    commandBadge.innerText = command.shortcut
+  })
+})
+
 document.getElementById('saveToPinboard').addEventListener('click', () => {
   browser.runtime.sendMessage('save-to-pinboard')
 })
