@@ -11,7 +11,7 @@
     border-radius: 5px;
     cursor:default;
     position: relative;
-    width: 180px;
+    width: 230px;
     color: #111;
   }
   .item:hover{
@@ -19,7 +19,7 @@
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
     background-color: #004cb3;
   }
-  .item span {
+  .item .badge {
     float: right;
     display: inline-block;
     margin-left: 1em;
@@ -44,10 +44,12 @@
   }
 </style>
 
-<div id="saveToPinboard" class="item">Save to Pinboard <span>Alt+P</span></div>
-<div id="saveToReadLater" class="item">Save to Read Later <span>Alt+R</span></div>
-<div class="divider"><hr /></div>
-<div id="unreadBookmarks" class="item">Unread bookmarks</div>
-<div id="allBookmarks" class="item">All bookmarks</div>
+<body>
+  <div id="saveToPinboard" class="item">Save to Pinboard <span class="badge"></span></div>
+  <div id="saveToReadLater" class="item">Save to Read Later <span class="badge"></span></div>
+  <div class="divider"><hr /></div>
+  <div id="unreadBookmarks" class="item">Unread bookmarks</div>
+  <div id="allBookmarks" class="item">All bookmarks</div>
 
-<script src="./popup.js"></script>
+  <script src="./popup.js"></script>
+</body>
