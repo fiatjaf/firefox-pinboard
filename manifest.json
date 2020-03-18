@@ -12,7 +12,7 @@
   "permissions": [
     "activeTab",
     "contextMenus",
-    "https://pinboard.in/close"
+    "https://pinboard.in/close-firefox-pinboard"
   ],
   "background": {
     "scripts": [
@@ -31,7 +31,7 @@
     }
   },
   "content_scripts": [{
-    "matches": ["https://pinboard.in/close"],
+    "matches": ["https://pinboard.in/close-firefox-pinboard"],
     "js": ["close.js"]
   }],
   "browser_action": {

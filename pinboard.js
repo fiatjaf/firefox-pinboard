@@ -8,7 +8,7 @@ function saveToPinboard (options = {url: '', title: '', description: '', readLat
   let {url, title, description, readLater} = options
 
   let pinboardUrl = BASE_URL + '/add?'
-  let next = encodeURIComponent('/close')
+  let next = encodeURIComponent('/close-firefox-pinboard')
 
   let fullUrl = pinboardUrl + 'next=' + next +
     '&url=' + encodeURIComponent(url) +
