@@ -1,4 +1,4 @@
-/* eslint-env browser, es6 */
+/* eslint-env browser, es2020 */
 /* eslint-disable no-unused-vars */
 /* global browser */
 
@@ -8,7 +8,7 @@ function saveToPinboard (options = {url: '', title: '', description: '', readLat
   let {url, title, description, readLater} = options
 
   let pinboardUrl = BASE_URL + '/add?'
-  let next = encodeURIComponent('/close-firefox-pinboard')
+  let next = encodeURIComponent(browser.runtime.getURL('/close.html'))
 
   let fullUrl = pinboardUrl + 'next=' + next +
     '&url=' + encodeURIComponent(url) +
