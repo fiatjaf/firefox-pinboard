@@ -1,5 +1,5 @@
-/* eslint-env browser, es6 */
-/* global browser, window, saveToPinboard, saveToReadLater,
+/* eslint-env browser, es2020 */
+/* global browser, saveToPinboard, saveToReadLater,
    openUnreadBookmarks, openAllBookmarks */
 
 browser.runtime.onMessage.addListener((message, sender) => {

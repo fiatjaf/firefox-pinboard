@@ -1,4 +1,4 @@
-/* eslint-env browser, es6 */
+/* eslint-env browser, es2020 */
 /* global browser */
 
 browser.commands.getAll().then((allCommands) => {

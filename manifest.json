@@ -11,8 +11,10 @@
   },
   "permissions": [
     "activeTab",
-    "contextMenus",
-    "https://pinboard.in/close"
+    "contextMenus"
+  ],
+  "web_accessible_resources": [
+    "close.html"
   ],
   "background": {
     "scripts": [
@@ -30,18 +32,15 @@
       "description": "Save current page to Pinboard's \"to read\" list"
     }
   },
-  "content_scripts": [{
-    "matches": ["https://pinboard.in/close"],
-    "js": ["close.js"]
-  }],
   "browser_action": {
+    "browser_style": true,
     "default_title": "Pinboard",
     "default_popup": "popup.html",
     "default_icon": "icon-dark.svg",
     "theme_icons": [{
       "light": "icon-light.svg",
       "dark": "icon-dark.svg",
-      "size": 19
+      "size": 32
     }]
   },
   "icons": {
