@@ -3,7 +3,7 @@
   "description": "A minimal Firefox extension for Pinboard (https://pinboard.in) that doesn't use API keys, but just opens Pinboard windows.",
   "homepage_url": "https://github.com/fiatjaf/firefox-pinboard-popup/",
   "manifest_version": 2,
-  "version" : "0.5",
+  "version" : "0.6",
   "applications": {
     "gecko": {
       "id": "{eb059682-fdfe-4250-a2c2-7f7d1af4fe85}"
